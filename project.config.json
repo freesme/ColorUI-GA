@@ -1,5 +1,5 @@
 {
-  "appid": "wx6eddb828c69ece94",
+  "appid": "wxfbc15eb266fe12f7",
   "compileType": "miniprogram",
   "libVersion": "2.26.0",
   "packOptions": {
@@ -40,5 +40,6 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "simulatorPluginLibVersion": {}
 }

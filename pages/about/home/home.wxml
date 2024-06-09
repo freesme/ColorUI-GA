@@ -3,16 +3,16 @@
 <import src="/pages/template/common/copyright.wxml" />
 
 <!-- 背景图 -->
-<image src='/images/bg.png' mode='widthFix' class='bg-img-new'></image>
+<!-- <image src='/images/bg.png' mode='widthFix' class='bg-img-new'></image> -->
 
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg">
-    <image src="/images/tabbar/basics_cur.png" class="png" mode="widthFix"></image>
-    <view class="text-xl text-orange text-blod">ColorUI GA
+    <!-- <image src="/images/tabbar/basics_cur.png" class="png" mode="widthFix"></image> -->
+    <view class="text-xl text-orange text-blod" style="position: relative; left: 1rpx; top: 53rpx">ColorUI GA
       <text class="text-df">v2.1.1</text>
     </view>
-    <text class="margin-top-sm text-orange">By: L.</text>
-    <text class="margin-top-sm text-gray">最近更新：2023/2/5</text>
+    <text class="margin-top-sm text-orange" style="position: relative; left: -2rpx; top: 58rpx">By: L.</text>
+    <text class="margin-top-sm text-gray" style="position: relative; left: -1rpx; top: 69rpx">最近更新：2023/2/5</text>
   </view>
   <view class="margin">
     <view class="padding-bottom flex text-center">

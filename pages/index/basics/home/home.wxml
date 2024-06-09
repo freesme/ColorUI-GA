@@ -1,51 +1,98 @@
 <!--pages/index/basics/home/home.wxml-->
 <import src="/pages/template/common/copyright.wxml" />
 
-<cu-custom noFixed="{{true}}" isLucency="{{true}}">
-  <view slot="content"><text class="">基础样式</text></view>
-</cu-custom>
-
 <!-- 全屏背景图 -->
 <image src='/images/bg.png' mode='widthFix' class='bg-img-new'></image>
 
 <!-- 页面 -->
-<scroll-view scroll-y class="scrollPage cu-timeline">
-  <!-- 滚动图片 -->
-  <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" previousMargin="0.01rpx" indicator-color="#8799a3" indicator-active-color="#0081ff" style='margin-top: {{StatusBar + CustomBar}}rpx;'>
-    <swiper-item wx:for="{{swiperList}}" wx:key="item" class="{{cardCur==index?'cur':''}}" bindtap='jumpTo' data-page='{{item.page}}'>
-      <view class="swiper-item">
-        <view class="bg-img radius-lg" style="background-image: url({{item.url}});height: 360rpx;">
-          <view class="padding-xl text-white">
-            <view class="padding-xs text-xl">
-              {{item.title}}
+<scroll-view scroll-y class="cu-drawer-page {{modalName=='viewModal'?'show':''}}">
+    <view style="margin-top: 65px;">
+        <!-- 个人信息 -->
+        <view>
+            <view class="flex padding">
+                <view class="cu-avatar radius margin-left" style="background-image:url(https://image.meiye.art/FlqKg5bugFQD5Qzm_QhGM7ET4Mtx?imageMogr2/thumbnail/450x/interlace/1);" bindtap="showModal" data-target="viewModal"></view>
+                <view class="padding-xs text-xl text-black">
+                    <view style="padding-left: 20px;">Hello，啄木鸟</view>
+            
+                </view>
             </view>
-            <view class="padding-xs">
-              {{item.des}}
+        </view>
+    </view>
+
+    <!-- 滚动图片 -->
+    <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" previousMargin="0.01rpx" indicator-color="#8799a3" indicator-active-color="#0081ff" style="margin-top: 10px;">
+        <swiper-item wx:for="{{swiperList}}" wx:key="item" class="{{cardCur==index?'cur':''}}" bindtap='jumpTo' data-page='{{item.page}}'>
+            <view class="swiper-item">
+                <view class="bg-img radius-lg" style="background-image: url({{item.url}});height: 360rpx;">
+                    <view class="padding-xl text-white">
+                        <view class="padding-xs text-xl">
+                            {{item.title}}
+                        </view>
+                        <view class="padding-xs">
+                            {{item.des}}
+                        </view>
+                    </view>
+                </view>
+                <!-- 图片不带文字 -->
+                <!-- <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image> -->
+                <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
             </view>
-          </view>
-        </view>
-        <!-- 图片不带文字 -->
-        <!-- <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image> -->
-        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-      </view>
-    </swiper-item>
-  </swiper>
-  <!-- 基础list -->
-  <view class='nav-list margin-top'>
-    <navigator open-type="navigate" hover-class='none' url="/pages/index/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key="item">
-      <image src='/images/0004.svg' mode='widthFix' class='image-bg' style="z-index: -2; margin: -8rpx 0rpx 0rpx -32rpx"></image>
-      <view class="nav-title">{{item.title}}</view>
-      <view class="flex">
-        <view class="flex-sub nav-name">{{item.name}}</view>
-        <view class="flex-sub nav-des text-right align-end">
-          基础
-        </view>
-      </view>
-      <text class='cuIcon-{{item.icon}}'></text>
-    </navigator>
-  </view>
-  <template is="copyright"></template>
+        </swiper-item>
+    </swiper>
 
-  <view class='cu-tabbar-height'></view>
+    <view class='nav-list margin-top'>
+        <navigator open-type="navigate" hover-class='none' url="/pages/index/basics/" class="nav-li bg-red">
+            <image src='/images/0004.svg' mode='widthFix' class='image-bg' style="z-index: -2; margin: -8rpx 0rpx 0rpx -32rpx"></image>
+            <view class="nav-title">深圳地铁</view>
+            <view class="flex">
+                <view class="flex-sub nav-des">正在进行</view>
+                <view class="flex-sub nav-des text-right align-end">
+                    进度：83%
+                </view>
+            </view>
+            <text class='cuIcon-{{item.icon}}'></text>
+        </navigator>
+        <navigator open-type="navigate" hover-class='none' url="/pages/index/basics/" class="nav-li bg-grey">
+            <image src='/images/0004.svg' mode='widthFix' class='image-bg' style="z-index: -2; margin: -8rpx 0rpx 0rpx -32rpx"></image>
+            <view class="nav-title">嘞似雾都</view>
+            <view class="flex">
+                <view class="flex-sub nav-des">未解锁</view>
+                <view class="flex-sub nav-des text-right align-end">
+                    ￥9.9
+                </view>
+            </view>
+            <text class='cuIcon-{{item.icon}}'></text>
+        </navigator>
+    </view>
 
+
+
+
+    <!-- <view class='nav-list margin-top'>
+        <navigator open-type="navigate" hover-class='none' url="/pages/index/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key="item">
+            <image src='/images/0004.svg' mode='widthFix' class='image-bg' style="z-index: -2; margin: -8rpx 0rpx 0rpx -32rpx"></image>
+            <view class="nav-title">{{item.title}}</view>
+            <view class="flex">
+                <view class="flex-sub nav-name">{{item.name}}</view>
+                <view class="flex-sub nav-des text-right align-end">
+                    基础
+                </view>
+            </view>
+            <text class='cuIcon-{{item.icon}}'></text>
+        </navigator>
+    </view> -->
+
+
+    <!-- <template is="copyright"></template> -->
+
+    <view class='cu-tabbar-height'></view>
+
+</scroll-view>
+
+<view class="cu-drawer-close {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+    <text class="cuIcon-pullright"></text>
+</view>
+
+<scroll-view scroll-y class="cu-drawer-window {{modalName=='viewModal'?'show':''}}">
+    <homePage></homePage>
 </scroll-view>

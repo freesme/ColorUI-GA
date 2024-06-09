@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/basics/home/home",
     "pages/index/index",
     "pages/index/basics/layout/layout",
     "pages/index/basics/background/background",
@@ -12,7 +13,6 @@
     "pages/index/basics/loading/loading",
     "pages/index/basics/progress/progress",
     "pages/index/basics/shadow/shadow",
-    "pages/index/component/home/home",
     "pages/index/component/bar/bar",
     "pages/index/component/nav/nav",
     "pages/index/component/list/list",

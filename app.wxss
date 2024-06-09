@@ -67,11 +67,11 @@
   font-size: 30rpx;
   font-weight: 480;
 }
-
+/* 
 .nav-title::first-letter {
   font-size: 40rpx;
   margin-right: 4rpx;
-}
+} */
 
 .nav-name {
   font-size: 28rpx;
@@ -110,12 +110,12 @@
   right: 40rpx;
   opacity: 0.3;
 }
-
+/* 
 .nav-name::first-letter {
   font-weight: bold;
   font-size: 36rpx;
   margin-right: 1px;
-}
+} */
 
 .nav-li text {
   position: absolute;

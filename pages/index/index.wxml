@@ -8,7 +8,7 @@
 <plugin wx:if="{{PageCur=='plugin'}}"></plugin>
 
 <!-- 悬浮工具栏-->
-<!-- <view class="fixed-tools-view show margin-bottom" style="z-index:200;">
+<view class="fixed-tools-view show margin-bottom" style="z-index:200;">
   <view class="icon-view show" bindtap="showModal" data-target="DialogModal2">
     <text class="cuIcon-info text-red" />
   </view>
@@ -31,7 +31,7 @@
       <view class="action margin-0 flex-sub text-blue solid-left" bindtap="hideModal">确定</view>
     </view>
   </view>
-</view> -->
+</view>
 
 <view class="cu-bar tabbar shadow foot bg-blur">
 
